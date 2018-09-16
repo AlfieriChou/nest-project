@@ -5,7 +5,7 @@ import { NestModule, MiddlewareConsumer } from '@nestjs/common/interfaces'
 import { HttpExceptionFilter } from './exception/http-exception.filter'
 
 @Module({
-  modules: [UserModule]
+  imports: [UserModule]
 })
 @UseFilters(new HttpExceptionFilter())
 export class ApplicationModule implements NestModule {

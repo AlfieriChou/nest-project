@@ -1,8 +1,8 @@
-import { Component, HttpException } from '@nestjs/common'
+import { Injectable, HttpException } from '@nestjs/common'
 import { Observable, of } from 'rxjs'
 import { User } from '../DTO/user.dto'
 
-@Component()
+@Injectable()
 export class UserService {
   private users = [
     { "id": 1, "name": "Michael", "age": 25 },

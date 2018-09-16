@@ -1,8 +1,8 @@
-import { Component, HttpException } from '@nestjs/common'
+import { Injectable, HttpException } from '@nestjs/common'
 import { Observable, of } from 'rxjs'
 import { Product } from '../DTO/product.dto'
 
-@Component()
+@Injectable()
 export class ProductService {
   private products = [
     { "id": 1, "name": "Watch", "price": 1000 },

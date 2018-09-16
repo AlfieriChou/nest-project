@@ -4,9 +4,9 @@ import { ProductService } from './Services/product.service'
 import { ExceptionModule } from '../Exception/exception.module'
 
 @Module({
-  modules: [ExceptionModule],
+  imports: [ExceptionModule],
   controllers: [ProductController],
-  components: [ProductService],
+  providers: [ProductService],
   exports: [ProductService]
 })
 
