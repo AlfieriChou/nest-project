@@ -1,11 +1,8 @@
 import { Controller, Get, Post, Request, Response, Param, Next, HttpStatus, Body, UseFilters } from '@nestjs/common'
 import { User } from './DTO/user.dto'
 import { UserService } from './Services/user.service'
-import { CustomForbiddenException } from '../../exception/forbidden.exception'
-import { HttpExceptionFilter } from '../../exception/http-exception.filter'
 
 @Controller()
-@UseFilters(new HttpExceptionFilter())
 export class UserController {
   constructor(private userService: UserService) {}
 
@@ -36,10 +33,5 @@ export class UserController {
     await this.userService.addUser(User).subscribe((users) => {
       res.status(HttpStatus.OK).json(users)
     })
-  }
-
-  @Get('getException')
-  async getException(@Request() req, @Response() res, @Next() next){
-    throw new CustomForbiddenException()
   }
 }
