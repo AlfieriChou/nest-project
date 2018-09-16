@@ -1,6 +1,5 @@
 import { Component, HttpException } from '@nestjs/common'
-import { Observable } from 'rxjs'
-import { of } from 'rxjs'
+import { Observable, of } from 'rxjs'
 import { Product } from '../DTO/product.dto'
 
 @Component()

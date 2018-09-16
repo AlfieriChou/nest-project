@@ -2,12 +2,12 @@ import { Controller, Get, Post, Request, Response, Param, Next, HttpStatus, Body
 import { Product } from './DTO/product.dto'
 import { ProductService } from './Services/product.service'
 
-@Controller('products')
+@Controller()
 export class ProductController {
 
   constructor(private productService: ProductService) { }
 
-  @Get()
+  @Get('products')
   async getAllProducts( @Request() req, @Response() res, @Next() next) {
     try{
       const products = await this.productService.getAllProducts()
@@ -18,7 +18,7 @@ export class ProductController {
     }
   }
 
-  @Get('/:id')
+  @Get('products/:id')
     async getProduct( @Response() res, @Param('id') id) {
       try {
         const product = await this.productService.getProduct(+id)
@@ -29,7 +29,7 @@ export class ProductController {
       }
   }
 
-  @Post()
+  @Post('products')
   async addUProduct( @Response() res, @Body() product: Product) {
     const products = await this.productService.addProduct(product)
     res.status(HttpStatus.OK).json(products)
