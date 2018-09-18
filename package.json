@@ -30,6 +30,7 @@
     "class-transformer": "^0.1.9",
     "class-validator": "^0.9.1",
     "express": "^4.16.3",
+    "morgan": "^1.9.1",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.2.2",
     "typescript": "^3.0.1"

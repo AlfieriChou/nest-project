@@ -4,7 +4,7 @@ import { Injectable, NestMiddleware, MiddlewareFunction } from '@nestjs/common'
 export class LoggerMiddleware implements NestMiddleware {
   resolve(...args: any[]): MiddlewareFunction {
     return (req, res, next) => {
-      console.log('----->', req.method + ' ' + req.baseUrl)
+      // console.log('----->', req.method + ' ' + req.baseUrl)
       next()
     }
   }

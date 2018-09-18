@@ -2,8 +2,10 @@ import { NestFactory } from '@nestjs/core'
 import { ApplicationModule } from 'modules/app.module'
 import { INestApplication } from '@nestjs/common/interfaces/nest-application.interface'
 import * as express from 'express'
+import * as morgan from 'morgan'
 
 const instance = express()
+instance.use(morgan('dev'))
 const app: Promise<INestApplication> = NestFactory.create(ApplicationModule, instance)
 
 app
