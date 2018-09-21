@@ -1,10 +1,12 @@
-import { Controller, Get, Post, Request, Response, Param, Next, HttpStatus, Body } from '@nestjs/common'
+import { Controller, Get, Post, Request, Response, Param, Next, HttpStatus, Body, UseInterceptors } from '@nestjs/common'
 import { User } from './DTO/user.dto'
 import { UserService } from './Services/user.service'
 import { ValidationPipe } from '../../pipe/validation.pipe'
 import { ParseIntPipe } from '../../pipe/parse-int.pipe'
+import { LoggingInterceptor } from '../../interceptor/logger.interceptor'
 
 @Controller()
+@UseInterceptors(LoggingInterceptor)
 export class UserController {
   constructor(private userService: UserService) {}
 
